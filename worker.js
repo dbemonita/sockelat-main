@@ -3,8 +3,8 @@ const serveStatic = require('serve-static');
 const path = require('path');
 const morgan = require('morgan');
 const healthChecker = require('sc-framework-health-check');
-const restApi = require('rest-api');
-const wsApi = require('ws-api');
+const restApi = require('@dbe/sockelat-rest');
+const wsApi = require('@dbe/sockelat-ws');
 
 class Worker extends SCWorker {
   run() {
