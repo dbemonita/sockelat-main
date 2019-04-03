@@ -1,8 +1,4 @@
 const SCWorker = require('socketcluster/scworker');
-const serveStatic = require('serve-static');
-const path = require('path');
-const morgan = require('morgan');
-// const healthChecker = require('sc-framework-health-check');
 const {restApi, healthChecker} = require('@dbe/sockelat-rest');
 const wsApi = require('@dbe/sockelat-ws');
 
@@ -13,9 +9,6 @@ class Worker extends SCWorker {
 
     var httpServer = this.httpServer;
     var scServer = this.scServer;
-
-    // app.use(serveStatic(path.resolve(__dirname, 'public')));
-    // healthChecker.attach(this, app);
 
     healthChecker(this);
     httpServer.on('request', restApi.callback());
