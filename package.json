@@ -7,7 +7,7 @@
   ],
   "dependencies": {
     "@dbe/loket-database": "^0.1.5",
-    "@dbe/sockelat-rest": "^0.6.1",
+    "@dbe/sockelat-rest": "^0.7.0",
     "@dbe/sockelat-ws": "0.1.0",
     "connect": "3.7.0",
     "dotenv": "^8.0.0",
