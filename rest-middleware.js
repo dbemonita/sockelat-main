@@ -37,7 +37,7 @@ module.exports = (app) => {
   //  Add favicon.
   app.use(favicon('public/favicon.ico'))
 
-  app.use(bodyParser())
+  app.use(bodyParser({multipart: true}))
 
   // Add routes by group.
   app.use(function (ctx, next) {
