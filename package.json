@@ -7,9 +7,8 @@
   ],
   "dependencies": {
     "@dbe/loket-database": "^0.1.8",
-    "@dbe/rest-admin": "file:../rest-admin",
-    "@dbe/rest-hmi": "file:../rest-hmi",
-    "@dbe/sockelat-rest": "^0.13.2",
+    "@dbe/sockelat-rest-admin": "^1.1.1",
+    "@dbe/sockelat-rest-hmi": "^1.1.1",
     "@dbe/sockelat-ws": "0.1.5",
     "@koa/cors": "^3.0.0",
     "connect": "3.7.0",
