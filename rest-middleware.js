@@ -2,8 +2,8 @@ const favicon = require('koa-favicon')
 const bodyParser = require('koa-body')
 const staticServe = require('./static')
 const mount = require('koa-mount')
-const restHmi = require('@dbe/rest-hmi')
-const restAdmin = require('@dbe/rest-admin')
+const restHmi = require('@dbe/sockelat-rest-hmi')
+const restAdmin = require('@dbe/sockelat-rest-admin')
 const jsonWebToken = require('jsonwebtoken');
 
 module.exports = (app) => {
