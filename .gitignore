@@ -1,3 +1,10 @@
 node_modules
-public/*
-drive/xml/*
+# drive/xml/*
+
+# exclude everything in every folder
+/drive/**/*.*
+/public/images/**/*.*
+
+# include only .gitkeep files
+!/drive/**/*.gitkeep
+!/public/images/**/*.gitkeep
