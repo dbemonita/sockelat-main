@@ -1,5 +1,6 @@
+ecosystem.config.js
+
 node_modules
-# drive/xml/*
 
 # exclude everything in every folder
 /drive/**/*.*

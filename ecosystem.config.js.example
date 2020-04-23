@@ -1,0 +1,25 @@
+module.exports = {
+  "apps": [{
+    "name": "sockelat-dev",
+    "script": "server.js",
+    "max_memory_restart": "300M",
+    "env": {
+      "PORT": 5000,
+      "NODE_ENV": "production",
+      "SECRET_KEY": "7095287fa7623804b11b4f9e43e5cbad",
+      "SCC_AUTH_KEY": "waduhek",
+      "MYSQL_DATABASE": "monita_v5_6",
+      "MYSQL_PASSWORD": "password",
+      "MYSQL_PORT": 3306,
+      "MYSQL_USER": "root",
+      "MYSQL_HOST": "localhost",
+      "REDIS_PORT": 6379,
+      "REDIS_HOST": "localhost",
+      "LOKET_INSTANCE": "loket-dev"
+    },
+    "instances": 1,
+    "exec_mode": "cluster",
+    "output": "/dev/null",
+    "error": "/dev/null"
+  }]
+};
