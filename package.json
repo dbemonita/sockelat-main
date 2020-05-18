@@ -1,7 +1,7 @@
 {
   "name": "@dbe/sockelat-main",
   "description": "Sockelat app wrapper",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "contributors": [
     "guncloud <subekti@daunbiru.com>"
   ],
