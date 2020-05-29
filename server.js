@@ -9,6 +9,7 @@
 
 require('dotenv/config');
 var path = require('path');
+var fs = require('fs');
 var argv = require('minimist')(process.argv.slice(2));
 var scHotReboot = require('sc-hot-reboot');
 
@@ -37,7 +38,7 @@ var options = {
   clusterStateServerPort: process.env.SCC_STATE_SERVER_PORT || null,
   clusterMappingEngine: process.env.SCC_MAPPING_ENGINE || null,
   clusterClientPoolSize: process.env.SCC_CLIENT_POOL_SIZE || null,
-  clusterAuthKey: process.env.SCC_AUTH_KEY || null,
+  clusterAuthKey: process.env.SECRET_KEY || null,
   clusterInstanceIp: process.env.SCC_INSTANCE_IP || null,
   clusterInstanceIpFamily: process.env.SCC_INSTANCE_IP_FAMILY || null,
   clusterStateServerConnectTimeout: Number(process.env.SCC_STATE_SERVER_CONNECT_TIMEOUT) || null,
@@ -46,8 +47,17 @@ var options = {
   crashWorkerOnError: argv['auto-reboot'] != false,
   // If using nodemon, set this to true, and make sure that environment is 'dev'.
   killMasterOnSignal: false,
-  environment: environment
+  environment: environment,
+  protocol: 'http'
 };
+
+if(process.env.KEY_PATH && process.env.CERT_PATH){
+  options.protocol = 'https';
+  options.protocolOptions = {
+    key: fs.readFileSync(process.env.KEY_PATH),
+    cert: fs.readFileSync(process.env.CERT_PATH)
+  }
+}
 
 var bootTimeout = Number(process.env.SOCKETCLUSTER_CONTROLLER_BOOT_TIMEOUT) || 10000;
 var SOCKETCLUSTER_OPTIONS;

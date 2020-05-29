@@ -42,10 +42,14 @@ module.exports = (app) => {
   // Add routes by group.
   app.use(function (ctx, next) {
     if(ctx.header.authorization){
-      let token = ctx.header.authorization.slice(7);
-      var decoded = jsonWebToken.decode(token);
-      
-      ctx.state.user = decoded;
+      try {
+        let token = ctx.header.authorization.slice(7);
+        var decoded = jsonWebToken.decode(token);
+        
+        ctx.state.user = decoded;
+      } catch (error) {
+        console.log(error);
+      }
     }
   
     return next();
