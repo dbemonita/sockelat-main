@@ -48,6 +48,7 @@ var options = {
   // If using nodemon, set this to true, and make sure that environment is 'dev'.
   killMasterOnSignal: false,
   environment: environment,
+  authKey: process.env.SECRET_KEY || null,
   protocol: 'http'
 };
 
