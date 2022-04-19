@@ -6,9 +6,9 @@
     "guncloud <subekti@daunbiru.com>"
   ],
   "dependencies": {
-    "@dbe/loket-database": "^0.1.12",
-    "@dbe/sockelat-rest-admin": "^1.2.12",
-    "@dbe/sockelat-rest-hmi": "^1.2.4",
+    "@dbe/loket-database": "^0.1.13",
+    "@dbe/sockelat-rest-admin": "^1.4.6",
+    "@dbe/sockelat-rest-hmi": "^2.3.1",
     "@dbe/sockelat-ws": "^0.3.4",
     "@koa/cors": "^3.1.0",
     "connect": "3.7.0",
