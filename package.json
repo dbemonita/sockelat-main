@@ -7,14 +7,14 @@
   ],
   "dependencies": {
     "@dbe/loket-database": "^0.1.13",
-    "@dbe/sockelat-rest-admin": "^1.4.6",
-    "@dbe/sockelat-rest-hmi": "^2.3.1",
-    "@dbe/sockelat-ws": "^0.3.4",
-    "@koa/cors": "^3.1.0",
+    "@dbe/sockelat-rest-admin": "^1.4.12",
+    "@dbe/sockelat-rest-hmi": "^2.5.5",
+    "@dbe/sockelat-ws": "^0.3.13",
+    "@koa/cors": "^3.4.3",
     "connect": "3.7.0",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.6.0",
     "jsonwebtoken": "^8.5.1",
-    "koa": "^2.13.0",
+    "koa": "^2.14.1",
     "koa-body": "^4.2.0",
     "koa-favicon": "^2.1.0",
     "koa-jwt": "^3.6.0",
@@ -26,7 +26,7 @@
     "sc-hot-reboot": "^1.0.0",
     "scc-broker-client": "^6.1.0",
     "socketcluster": "^14.4.2",
-    "socketcluster-client": "^14.3.0"
+    "socketcluster-client": "^14.3.2"
   },
   "keywords": [
     "websocket",
