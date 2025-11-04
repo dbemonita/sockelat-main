@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag name for release (optional, if not provided uses pushed tag or commit SHA)'
+        required: false
+
+jobs:
+  create_release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine release tag
+        id: tag
+        run: |
+          # Use input tag when provided (workflow_dispatch). When trigger is a pushed tag, extract it from GITHUB_REF.
+          if [ -n "${{ github.event.inputs.tag }}" ]; then
+            echo "TAG=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            ref_name=${GITHUB_REF#refs/tags/}
+            echo "TAG=$ref_name" >> $GITHUB_OUTPUT
+          else
+            echo "TAG=manual-${GITHUB_SHA::8}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create source archive
+        run: |
+          # Create a compressed archive of the tracked repository files (no node_modules, no .git)
+          git rev-parse --verify HEAD
+          git archive --format=tar.gz -o release.tar.gz ${{ github.sha }}
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.tag.outputs.TAG }}
+          release_name: Release ${{ steps.tag.outputs.TAG }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: release.tar.gz
+          asset_name: release-${{ steps.tag.outputs.TAG }}.tar.gz
+          asset_content_type: application/gzip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
