@@ -6,10 +6,10 @@
     "guncloud <subekti@daunbiru.com>"
   ],
   "dependencies": {
-    "@dbe/loket-database": "^0.1.13",
-    "@dbe/sockelat-rest-admin": "^1.4.12",
-    "@dbe/sockelat-rest-hmi": "^2.5.5",
-    "@dbe/sockelat-ws": "^0.3.13",
+    "@dbe/loket-database": "file:../loket-database",
+    "@dbe/sockelat-rest-admin": "file:../rest-admin",
+    "@dbe/sockelat-rest-hmi": "file:../rest-hmi",
+    "@dbe/sockelat-ws": "file:../rest-ws",
     "@koa/cors": "^3.4.3",
     "connect": "3.7.0",
     "dotenv": "^8.6.0",
@@ -36,11 +36,10 @@
     "scalable"
   ],
   "scripts": {
-    "start": "node server.js",
+    "start": "node --trace-deprecation server.js",
     "start:docker": "node dockerwait.js && node ${SOCKETCLUSTER_MASTER_CONTROLLER:-server.js}"
   },
   "main": "broker.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://guncloud@bitbucket.org/dbe-design/sockelat-main.git"

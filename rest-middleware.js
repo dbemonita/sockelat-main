@@ -37,21 +37,22 @@ module.exports = (app) => {
   //  Add favicon.
   app.use(favicon('public/favicon.ico'))
 
-  app.use(bodyParser({multipart: true}))
+  app.use(bodyParser({ multipart: true }))
 
   // Add routes by group.
   app.use(function (ctx, next) {
-    if(ctx.header.authorization){
+    if (ctx.header.authorization) {
       try {
         let token = ctx.header.authorization.slice(7);
         var decoded = jsonWebToken.decode(token);
-        
+        const verif = jsonWebToken.verify(token, process.env.SECRET_KEY);
         ctx.state.user = decoded;
       } catch (error) {
         console.log(error);
+        // ctx.status = 401;
       }
     }
-  
+
     return next();
   });
 

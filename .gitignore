@@ -10,3 +10,4 @@ node_modules
 # include only .gitkeep files
 !/drive/**/*.gitkeep
 !/public/images/**/*.gitkeep
+.vscode

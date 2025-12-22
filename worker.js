@@ -16,12 +16,13 @@ class Worker extends SCWorker {
     });
 
     scServer.on('connection', wsApi());
+    // startNativeWS(httpServer)
 
     scServer.on('error', err => {
       console.log('[WS Error]', err);
     })
     scServer.on('warning', err => {
-      if(err){
+      if (err) {
         console.log('[WS Warning]', err.message);
       }
     })

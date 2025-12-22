@@ -13,8 +13,8 @@ app.use(cors({
   // origin: verifyOrigin,
   origin: '*',
   credentials: false,
-  allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'Access-Control-Allow-Origin','X-XSRF-TOKEN', 'x-requested-with'],
-  allowMethods: ['GET','HEAD','PUT','POST','DELETE','PATCH', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'Access-Control-Allow-Origin', 'X-XSRF-TOKEN', 'x-requested-with'],
+  allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH', 'OPTIONS'],
   exposeHeaders: ['Message-Code', 'Message-Content']
 }));
 
