@@ -5,6 +5,7 @@ const mount = require('koa-mount')
 const restHmi = require('@dbe/sockelat-rest-hmi')
 const restAdmin = require('@dbe/sockelat-rest-admin')
 const jsonWebToken = require('jsonwebtoken');
+const restDevice = require('@dbe/sockelat-rest-device')
 
 module.exports = (app) => {
   // Catch and format the error in the upstream.
@@ -58,4 +59,5 @@ module.exports = (app) => {
 
   app.use(mount(restHmi))
   app.use(mount(restAdmin))
+  app.use(mount(restDevice))
 }

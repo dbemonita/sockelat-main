@@ -11,3 +11,4 @@ node_modules
 !/drive/**/*.gitkeep
 !/public/images/**/*.gitkeep
 .vscode
+monita-add.json
